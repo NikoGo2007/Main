@@ -38,7 +38,7 @@ def create_daily_quests_buttons(state):
 
 def create_main_menu():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.row("Ежедневные квесты", "Статистика")
+    keyboard.row("Ежедневные квесты", "Статистика", "Поделиться статистикой с друзьями")
     return keyboard
 
 
@@ -67,9 +67,6 @@ def show_daily_quests(message):
 @bot.message_handler(func=lambda message: message.text == "Статистика")
 def show_stats(message):
     user_data = get_user_data(message.from_user.id)
-
-    # Проверяем достижения при открытии статистики
-    new_achievements = check_achievements(user_data)
 
     stats_text = f"Статистика Негорящего:\n\n"
     stats_text += f"Уровень душ: {user_data['soul_level']}\n"
