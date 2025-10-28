@@ -45,7 +45,7 @@ def create_main_menu():
 def friend(message):
     bot.send_message(
         message.chat.id,
-        "у тебя нет друзей")
+        "у тебя нет друзей)))")
 
 @bot.message_handler(commands=['start'])
 def start_journey(message):
