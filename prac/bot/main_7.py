@@ -41,10 +41,16 @@ def create_main_menu():
     keyboard.row("Ежедневные квесты", "Статистика", "Поделиться статистикой с друзьями")
     return keyboard
 
+@bot.message_handler(func=lambda message: message.text == "Поделиться статистикой с друзьями")
+def friend(message):
+    bot.send_message(
+        message.chat.id,
+        "у тебя нет друзей")
 
 @bot.message_handler(commands=['start'])
 def start_journey(message):
     user_data = get_user_data(message.from_user.id)
+    bot.send_photo(message.from_user.id, "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop")
     bot.send_message(
         message.chat.id,
         f"Добро пожаловать в Лотрик, Негорящий!\n\n"
@@ -56,6 +62,7 @@ def start_journey(message):
 
 @bot.message_handler(func=lambda message: message.text == "Ежедневные квесты")
 def show_daily_quests(message):
+    bot.send_photo(message.from_user.id, "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=800&h=600&fit=crop")
     user_data = get_user_data(message.from_user.id)
     bot.send_message(
         message.chat.id,
@@ -66,6 +73,7 @@ def show_daily_quests(message):
 
 @bot.message_handler(func=lambda message: message.text == "Статистика")
 def show_stats(message):
+    bot.send_photo(message.from_user.id, "https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800&h=600&fit=crop")
     user_data = get_user_data(message.from_user.id)
 
     stats_text = f"Статистика Негорящего:\n\n"
