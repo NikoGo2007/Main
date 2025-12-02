@@ -26,7 +26,7 @@ while True:
     for f in food[:]:
         if dist2(player_pos, f) < player_r**2:
             food.remove(f)
-            player_r += 1
+            player_r += 5
 
     screen.fill((30, 30, 30))
     for f in food:
